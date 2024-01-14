@@ -1,20 +1,61 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import HomeScreen from './screens/HomeScreen';
+import ResourcesScreen from './screens/ResourcesScreen';
+import TasksScreen from './screens/TasksScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}
+        sceneContainerStyle={{
+          backgroundColor: 'white',
+        }}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Tasks"
+          component={TasksScreen}
+          options={{
+            tabBarLabel: 'Tasks',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="checkmark-circle" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Resources"
+          component={ResourcesScreen}
+          options={{
+            tabBarLabel: 'Resources',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="book" color={color} size={size} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  // add your custom styles here
 });

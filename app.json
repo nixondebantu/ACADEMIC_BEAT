@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ACADEMIC_BEAT",
+    "name": "Academic Beat",
     "slug": "ACADEMIC_BEAT",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
