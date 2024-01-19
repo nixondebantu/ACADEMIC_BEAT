@@ -13,6 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
+        initialRouteName="Home" // Set the initial route to "Home"
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
@@ -21,6 +22,16 @@ export default function App() {
           backgroundColor: 'white',
         }}
       >
+        <Tab.Screen
+          name="Resources"
+          component={ResourcesScreen}
+          options={{
+            tabBarLabel: 'Resources',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="book" color={color} size={size} />
+            ),
+          }}
+        />
         <Tab.Screen
           name="Home"
           component={HomeScreen}
@@ -35,19 +46,9 @@ export default function App() {
           name="Tasks"
           component={TasksScreen}
           options={{
-            tabBarLabel: 'Tasks',
+            tabBarLabel: 'Settings',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="checkmark-circle" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Resources"
-          component={ResourcesScreen}
-          options={{
-            tabBarLabel: 'Resources',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="book" color={color} size={size} />
+              <Ionicons name="settings-sharp" color={color} size={size} />
             ),
           }}
         />
