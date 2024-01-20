@@ -1,14 +1,19 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import CourseInfo from '../components/CourseInfo';
 
 function ResourcesScreen() {
   return (
-    <View>
-        <Text>Resources</Text>
+    <View style={styles.container}>
         <CourseInfo/>
     </View>
   );
 }
+
+const styles= StyleSheet.create({
+  container:{
+    padding:10
+  }
+});
 
 export default ResourcesScreen;

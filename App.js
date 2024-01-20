@@ -5,7 +5,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
 import ResourcesScreen from './screens/ResourcesScreen';
-import TasksScreen from './screens/TasksScreen';
+import SettingScreen from './screens/SettingScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +13,23 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Home" // Set the initial route to "Home"
+        initialRouteName="Home"
+        screenOptions={({ route }) => ({
+          tabBarLabel: route.name,
+          tabBarIcon: ({ color, size }) => {
+            let iconName;
+
+            if (route.name === 'Resources') {
+              iconName = 'book';
+            } else if (route.name === 'Home') {
+              iconName = 'home';
+            } else if (route.name === 'Settings') {
+              iconName = 'settings-sharp';
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
@@ -22,36 +38,9 @@ export default function App() {
           backgroundColor: 'white',
         }}
       >
-        <Tab.Screen
-          name="Resources"
-          component={ResourcesScreen}
-          options={{
-            tabBarLabel: 'Resources',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="book" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="home" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Tasks"
-          component={TasksScreen}
-          options={{
-            tabBarLabel: 'Settings',
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="settings-sharp" color={color} size={size} />
-            ),
-          }}
-        />
+        <Tab.Screen name="Resources" component={ResourcesScreen} />
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

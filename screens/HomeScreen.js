@@ -1,12 +1,18 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import HomeOptionCard from '../components/Card/HomeOptionCard';
 
 function HomeScreen() {
   return (
-    <View>
-        <Text>HomePage</Text>
+    <View style={styles.container}>
+        <HomeOptionCard/>
     </View>
   );
 }
+const styles= StyleSheet.create({
+  container:{
+    padding:10
+  }
+});
 
 export default HomeScreen;
