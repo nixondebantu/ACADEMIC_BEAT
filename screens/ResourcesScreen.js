@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import CourseInfo from '../components/CourseInfo';
 
 function ResourcesScreen() {
+  
   return (
     <View style={styles.container}>
         <CourseInfo/>
@@ -12,7 +13,8 @@ function ResourcesScreen() {
 
 const styles= StyleSheet.create({
   container:{
-    padding:10
+    padding:10,
+    flex:1,
   }
 });
 
